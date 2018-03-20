@@ -21,10 +21,12 @@ var path = require('path');
 function readFileTxt(filePath, filename,callback){
     var filedir = path.join(filePath, filename);
     // console.log(filedir)
+    // 以二进制方式打开
     fs.readFile(filedir, { encoding: 'binary' }, function(err, data){
         if (err){
             console.warn(err)
         }
+        // 放入二进制buffer
         var buf = new Buffer(data, 'binary');
         var str = iconv.decode(buf, 'gbk');
         callback(str);
