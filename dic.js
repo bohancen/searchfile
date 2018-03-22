@@ -84,17 +84,15 @@ fileDisplay(filePath, function (filedir){
                 resultArry.push([filedir, str.replace('[\.ShellClassInfo]','').replace(/[\n\r]/g,'')+'\n'].join('---'))
                 // console.log( [filedir,str].join('\n'))
                 calcnum--
+                // 全部完成
                 if (calcnum==0){
                     console.log('over')
                     // console.log(resultArry)
-
+                    // 写入数据
                     fs.writeFile('./input.txt', resultArry.join(''), function (err) {
                         if (err) {
                             return console.error(err);
                         }
-                        // console.log("数据写入成功！");
-                        // console.log("--------我是分割线-------------")
-                        // console.log("读取写入的数据！");
                         // fs.readFile('input.txt', function (err, data) {
                         //     if (err) {
                         //         return console.error(err);
